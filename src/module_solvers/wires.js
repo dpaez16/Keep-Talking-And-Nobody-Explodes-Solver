@@ -68,6 +68,13 @@ export default class WiresSolver {
         }
     }
 
+    /**
+     * Solves the (simple) wires module.
+     * 
+     * @param {Array<WireColor>} wires The wires in the module listed in creation order.
+     * @param {number} last_serial_number_digit The last digit of the serial number on the bomb.
+     * @returns The specific wire (numeric position) to cut.
+     */
     static solve(wires, last_serial_number_digit) {
         const num_wires = wires.length;
         wires = wires.map(wire => WireColor.fromString(wire));
