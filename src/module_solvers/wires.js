@@ -5,10 +5,11 @@ export default class WiresSolver {
     static #helper_3_wires(wires) {
         const num_blue_wires = wires.filter(wire => wire === WireColor.BLUE).length;
         const last_blue_wire_pos = wires.lastIndexOf(WireColor.BLUE) + 1;
+        const last_wire = wires.slice(-1)[0];
 
         if (!wires.includes(WireColor.RED)) {
             return 2;
-        } else if (wires.slice(-1) === WireColor.WHITE) {
+        } else if (last_wire === WireColor.WHITE) {
             return 3;
         } else if (num_blue_wires > 1) {
             return last_blue_wire_pos;
@@ -22,10 +23,11 @@ export default class WiresSolver {
         const num_blue_wires = wires.filter(wire => wire === WireColor.BLUE).length;
         const num_yellow_wires = wires.filter(wire => wire === WireColor.YELLOW).length;
         const last_red_wire_pos = wires.lastIndexOf(WireColor.RED) + 1;
+        const last_wire = wires.slice(-1)[0];
 
         if (num_red_wires > 1 && last_serial_number_digit % 2 === 1) {
             return last_red_wire_pos;
-        } else if (wires.slice(-1) === WireColor.YELLOW && num_red_wires === 0) {
+        } else if (last_wire === WireColor.YELLOW && num_red_wires === 0) {
             return 1;
         } else if (num_blue_wires === 1) {
             return 1;
@@ -40,8 +42,9 @@ export default class WiresSolver {
         const num_red_wires = wires.filter(wire => wire === WireColor.RED).length;
         const num_black_wires = wires.filter(wire => wire === WireColor.BLACK).length;
         const num_yellow_wires = wires.filter(wire => wire === WireColor.YELLOW).length;
+        const last_wire = wires.slice(-1)[0];
 
-        if (wires.slice(-1) === WireColor.BLACK && last_serial_number_digit % 2 === 1) {
+        if (last_wire === WireColor.BLACK && last_serial_number_digit % 2 === 1) {
             return 4;
         } else if (num_red_wires === 1 && num_yellow_wires > 1) {
             return 1;
