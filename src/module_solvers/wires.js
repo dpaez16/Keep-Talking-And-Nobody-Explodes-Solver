@@ -4,7 +4,7 @@ import WireColor from '../types/wire_color';
 export default class WiresSolver {
     static #helper_3_wires(wires) {
         const num_blue_wires = wires.filter(wire => wire === WireColor.BLUE).length;
-        const last_blue_wire_pos = wires.lastIndexOf(WireColor.BLUE);
+        const last_blue_wire_pos = wires.lastIndexOf(WireColor.BLUE) + 1;
 
         if (!wires.includes(WireColor.RED)) {
             return 2;
@@ -21,7 +21,7 @@ export default class WiresSolver {
         const num_red_wires = wires.filter(wire => wire === WireColor.RED).length;
         const num_blue_wires = wires.filter(wire => wire === WireColor.BLUE).length;
         const num_yellow_wires = wires.filter(wire => wire === WireColor.YELLOW).length;
-        const last_red_wire_pos = wires.lastIndexOf(WireColor.RED);
+        const last_red_wire_pos = wires.lastIndexOf(WireColor.RED) + 1;
 
         if (num_red_wires > 1 && last_serial_number_digit % 2 === 1) {
             return last_red_wire_pos;
@@ -77,7 +77,6 @@ export default class WiresSolver {
      */
     static solve(wires, last_serial_number_digit) {
         const num_wires = wires.length;
-        wires = wires.map(wire => WireColor.fromString(wire));
 
         if (num_wires === 3) {
             return this.#helper_3_wires(wires);

@@ -1,11 +1,7 @@
 import logo from './logo.svg';
-import WireSolver from './module_solvers/wires';
 import './App.css';
 
 function App() {
-  const wires = ['RED', 'BLUE', 'YELLOW'];
-  console.log(WireSolver.solve(wires, 9));
-
   return (
     <div className="App">
       <header className="App-header">
