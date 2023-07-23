@@ -12,7 +12,7 @@ describe('Mazes Module Tests', () => {
         const white_square_coords = [1, 6];
 
         const path = MazesSolver.solve(circles, red_triangle_coords, white_square_coords);
-        const expected = [
+        const expectedPath = [
             [ 0, 5 ], [ 0, 4 ], [ 0, 3 ],
             [ 1, 3 ], [ 1, 4 ], [ 1, 5 ],
             [ 2, 5 ], [ 2, 4 ], [ 2, 3 ],
@@ -21,7 +21,12 @@ describe('Mazes Module Tests', () => {
             [ 0, 2 ], [ 0, 1 ], [ 0, 0 ]
         ];
 
-        expect(path).toStrictEqual(expected);
+        expect(path).toStrictEqual(expectedPath);
+
+        const steps = MazesSolver.getStepsFromPath(path);
+        const expectedSteps = "LEFT, LEFT, DOWN, RIGHT, RIGHT, DOWN, LEFT, LEFT, DOWN, LEFT, UP, LEFT, UP, RIGHT, UP, LEFT, LEFT";
+
+        expect(steps).toBe(expectedSteps);
     });
 
     test('Maze 2 test', () => {
@@ -34,7 +39,7 @@ describe('Mazes Module Tests', () => {
         const white_square_coords = [1, 6];
 
         const path = MazesSolver.solve(circles, red_triangle_coords, white_square_coords);
-        const expected = [
+        const expectedPath = [
             [ 0, 5 ], [ 0, 4 ],
             [ 0, 3 ], [ 1, 3 ],
             [ 1, 2 ], [ 2, 2 ],
@@ -44,9 +49,14 @@ describe('Mazes Module Tests', () => {
             [ 0, 1 ], [ 0, 0 ]
         ];
 
-        expect(path).toStrictEqual(expected);
-    });
+        expect(path).toStrictEqual(expectedPath);
 
+        const steps = MazesSolver.getStepsFromPath(path);
+        const expectedSteps = "LEFT, LEFT, DOWN, LEFT, DOWN, LEFT, DOWN, LEFT, UP, UP, RIGHT, UP, LEFT";
+        
+        expect(steps).toBe(expectedSteps);
+ 1   });
+1
     test('Maze 3 test', () => {
         const circles = [
             [4, 6],
@@ -57,7 +67,7 @@ describe('Mazes Module Tests', () => {
         const white_square_coords = [1, 6];
 
         const path = MazesSolver.solve(circles, red_triangle_coords, white_square_coords);
-        const expected = [
+        const expectedPath = [
             [ 0, 5 ], [ 1, 5 ], [ 2, 5 ],
             [ 3, 5 ], [ 4, 5 ], [ 5, 5 ],
             [ 5, 4 ], [ 4, 4 ], [ 3, 4 ],
@@ -70,6 +80,11 @@ describe('Mazes Module Tests', () => {
             [ 0, 2 ], [ 0, 1 ], [ 0, 0 ]
         ];
 
-        expect(path).toStrictEqual(expected);
+        expect(path).toStrictEqual(expectedPath);
+
+        const steps = MazesSolver.getStepsFromPath(path);
+        const expectedSteps = "DOWN, DOWN, DOWN, DOWN, DOWN, LEFT, UP, UP, UP, LEFT, DOWN, DOWN, DOWN, LEFT, LEFT, LEFT, UP, UP, UP, RIGHT, DOWN, DOWN, RIGHT, UP, UP, UP, UP, LEFT, LEFT";
+        
+        expect(steps).toBe(expectedSteps);
     });
 });

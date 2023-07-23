@@ -164,6 +164,27 @@ export default class MazesSolver {
     static #zero_index_coords(coords) {
         return coords.map(elem => elem - 1);
     }
+    
+    static getStepsFromPath(path) {
+        const steps = [];
+        
+        const isLeftDir =  (u, v) => [u[0], u[1] - 1].toString() === v.toString();
+        const isRightDir = (u, v) => [u[0], u[1] + 1].toString() === v.toString();
+        const isNorthDir = (u, v) => [u[0] - 1, u[1]].toString() === v.toString();
+        const isSouthDir = (u, v) => [u[0] + 1, u[1]].toString() === v.toString();
+
+        for (let idx = 1; idx < path.length; idx++) {
+            const curr = path[idx - 1];
+            const next_vertex = path[idx];
+
+            if (isLeftDir(curr, next_vertex)) steps.push("LEFT");
+            if (isRightDir(curr, next_vertex)) steps.push("RIGHT");
+            if (isNorthDir(curr, next_vertex)) steps.push("UP");
+            if (isSouthDir(curr, next_vertex)) steps.push("DOWN");
+        }
+
+        return steps.join(", ");
+    }
 
     static solve(circles, red_triangle_coords, white_square_coords) {
         const get_true_idx = (a) => a[0] * MAZE_LENGTH + a[1];
