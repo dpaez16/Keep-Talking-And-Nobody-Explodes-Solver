@@ -200,4 +200,32 @@ describe('Mazes Module Tests', () => {
         
         expect(steps).toBe(expectedSteps);
     });
+
+    test('Maze 8 test', () => {
+        const circles = [
+            [4, 2],
+            [1, 4]
+        ];
+
+        const red_triangle_coords = [1, 1];
+        const white_square_coords = [1, 6];
+
+        const path = MazesSolver.solve(circles, red_triangle_coords, white_square_coords);
+        const expectedPath = [
+            [ 0, 5 ], [ 1, 5 ],
+            [ 2, 5 ], [ 3, 5 ],
+            [ 3, 4 ], [ 2, 4 ],
+            [ 1, 4 ], [ 1, 3 ],
+            [ 0, 3 ], [ 0, 2 ],
+            [ 0, 1 ], [ 1, 1 ],
+            [ 1, 0 ], [ 0, 0 ]
+        ];
+
+        expect(path).toStrictEqual(expectedPath);
+
+        const steps = MazesSolver.getStepsFromPath(path);
+        const expectedSteps = "DOWN, DOWN, DOWN, LEFT, UP, UP, LEFT, UP, LEFT, LEFT, DOWN, LEFT, UP";
+        
+        expect(steps).toBe(expectedSteps);
+    });
 });
