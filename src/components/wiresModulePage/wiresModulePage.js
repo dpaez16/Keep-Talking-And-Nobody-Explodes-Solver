@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
-import {Container, Header, List, Button, Input} from 'semantic-ui-react';
-import AddWireRow from './addWireRow/addWireRow';
+import {Container, Header, List, Button, Input, Dropdown} from 'semantic-ui-react';
 import WiresSolver from '../../module_solvers/wires';
-//import './wiresModulePage.css';
+import WireColor from '../../types/wire_color';
+import './wiresModulePage.css';
 
 export default class WiresModulePage extends Component {
     constructor(props) {
         super(props);
 
-        const initialWireColors = [...Array(WiresSolver.MAX_WIRES)];
-
         this.state = {
-            wireColors: initialWireColors,
+            wireColors: [],
+            selectedWire: undefined,
             lastSerialDigit: undefined,
             answer: undefined
         };
@@ -30,67 +29,106 @@ export default class WiresModulePage extends Component {
         return `Cut the ${positions[answer - 1]} wire.`;
     }
 
-    render() {
-        const range = [...Array(WiresSolver.MAX_WIRES)];
+    handleChange(event, {name, value}) {
+        this.setState({
+            [name]: value
+        });
+    }
 
+    addWireDropdownHandler(event, {value}) {
+        this.setState({
+            selectedWire: value
+        });
+    }
+
+    inputValid() {
+        if (this.state.lastSerialDigit === undefined) return false;
+        return this.state.wireColors.length >= 3;
+    }
+
+    render() {
         return (
             <Container 
                 className="WiresModulePage" 
                 fluid 
             >
                 <Header as='h1'>Wires</Header>
+                <Container fluid>
+                    <Input
+                        label="Last Digit of Serial Number"
+                        type="number"
+                        name='lastSerialDigit'
+                        onChange={this.handleChange.bind(this)}
+                    />
+                </Container>
+                <Container fluid>
+                    <Dropdown
+                        className="addWireDropdown"
+                        placeholder="Wire Color"
+                        selection
+                        options={WireColor.enumValues.map((wire_color, idx) => { return {key: wire_color.enumKey, value: wire_color, text: wire_color.enumKey}; })}
+                        onChange={this.addWireDropdownHandler.bind(this)}
+                    />
+                    <Button
+                        positive
+                        onClick={e => {
+                            e.preventDefault();
+                            this.setState({wireColors: [...this.state.wireColors, this.state.selectedWire]});
+                        }}
+                        disabled={this.state.selectedWire === undefined || this.state.wireColors.length === WiresSolver.MAX_WIRES}
+                    >
+                        Add Wire
+                    </Button>
+                </Container>
+                <Container fluid>
+                    <Button
+                        negative
+                        onClick={e => {
+                            e.preventDefault();
+
+                            this.setState({
+                                wireColors: [],
+                                answer: undefined
+                            });
+                        }}
+                    >
+                        Clear Wires
+                    </Button>
+                    <Button
+                        positive
+                        disabled={!this.inputValid()}
+                        onClick={e => {
+                            e.preventDefault();
+
+                            const wireColors = this.state.wireColors.filter(wireColor => wireColor !== undefined);
+                            const lastSerialDigit = this.state.lastSerialDigit;
+                            let newAnswer = WiresSolver.solve(wireColors, lastSerialDigit);
+                            newAnswer = this.parseAnswer(newAnswer);
+
+                            this.setState({answer: newAnswer});
+                        }}
+                    >
+                        Solve
+                    </Button>
+                </Container>
                 <List>
                     {
-                        range.map((_, idx) => {
+                        this.state.wireColors.map((wireColor, idx) => {
                             return (
                                 <List.Item key={idx}>
-                                    <AddWireRow
-                                        idx={idx}
-                                        addHandler={(wireColor) => {
-                                            const newWireColors = this.state.wireColors.toSpliced(idx, 1, wireColor);
-                                            this.setState({wireColors: newWireColors});
-                                        }}
-
-                                        deleteHandler={() => {
-                                            const newWireColors = this.state.wireColors.toSpliced(idx, 1, undefined);
-                                            this.setState({wireColors: newWireColors});
-                                        }}
-                                    />
+                                    {wireColor.enumKey}
                                 </List.Item>
                             );
                         })
                     }
                 </List>
-                <Input  label='Last Digit of Serial Number' 
-                        type="number"
-                        onChange={(e) => {
-                            e.preventDefault();
-
-                            const lastDigit = Number(e.target.value);
-                            this.setState({lastSerialDigit: lastDigit});
-                        }}
-                />
-                <Button
-                    onClick={e => {
-                        e.preventDefault();
-
-                        const wireColors = this.state.wireColors.filter(wireColor => wireColor !== undefined);
-                        const lastSerialDigit = this.state.lastSerialDigit;
-                        let newAnswer = WiresSolver.solve(wireColors, lastSerialDigit);
-                        newAnswer = this.parseAnswer(newAnswer);
-
-                        this.setState({answer: newAnswer});
-                    }}
-                >
-                    Solve
-                </Button>
                 {
                     this.state.answer &&
-                    <p>
+                    <Header as='h3'>
                         <b>
                             {this.state.answer}
                         </b>
-                    </p>
+                    </Header>
                 }
             </Container>
         );
