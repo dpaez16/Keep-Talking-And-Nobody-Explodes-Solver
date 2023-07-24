@@ -4,6 +4,7 @@ import {Container} from 'semantic-ui-react';
 import HomePage from './components/homePage/homePage';
 import WiresModulePage from './components/wiresModulePage/wiresModulePage';
 import ButtonModulePage from './components/buttonModulePage/buttonModulePage';
+import ComplicatedWiresModulePage from './components/complicatedWiresModulePage/complicatedWiresModulePage';
 import './App.css';
 
 export default class App extends Component {
@@ -37,8 +38,8 @@ export default class App extends Component {
                             <Route  path="/morsecode" 
                                     element={<HomePage/>} // TODO
                             />
-                            <Route  path="/complicatedwires" 
-                                    element={<HomePage/>} // TODO
+                            <Route  path="/complicatedwires"
+                                    element={<ComplicatedWiresModulePage/>}
                             />
                             <Route  path="/wiresequences" 
                                     element={<HomePage/>} // TODO

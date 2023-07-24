@@ -1,0 +1,9 @@
+.ComplicatedWiresModulePage {
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+}
+
+.ComplicatedWiresModulePage > div {
+    margin-top: 1rem;
+}
