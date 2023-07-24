@@ -71,6 +71,20 @@ const MAZE_5 = [
     [new MazeCell(true, true), new MazeCell(false, true), new MazeCell(false, true), new MazeCell(false, true), new MazeCell(false, true), new MazeCell(true, true)]
 ];
 
+const MAZE_6_CIRCLES = [
+    [1, 5],
+    [5, 3]
+];
+
+const MAZE_6 = [
+    [new MazeCell(true, false), new MazeCell(false, false), new MazeCell(true, false), new MazeCell(false, true), new MazeCell(false, false), new MazeCell(true, false)],
+    [new MazeCell(true, false), new MazeCell(true, false), new MazeCell(true, false), new MazeCell(false, false), new MazeCell(true, true), new MazeCell(true, false)],
+    [new MazeCell(false, false), new MazeCell(true, true), new MazeCell(true, true), new MazeCell(true, false), new MazeCell(false, false), new MazeCell(true, true)],
+    [new MazeCell(false, true), new MazeCell(true, false), new MazeCell(false, false), new MazeCell(true, false), new MazeCell(true, false), new MazeCell(true, false)],
+    [new MazeCell(false, false), new MazeCell(true, true), new MazeCell(true, true), new MazeCell(true, false), new MazeCell(false, true), new MazeCell(true, false)],
+    [new MazeCell(false, true), new MazeCell(false, true), new MazeCell(false, true), new MazeCell(true, true), new MazeCell(false, true), new MazeCell(true, true)]
+];
+
 const MAZE_LENGTH = MAZE_1.length;
 
 export default class MazesSolver {
@@ -241,6 +255,10 @@ export default class MazesSolver {
 
         if (circles_comp(circles, MAZE_5_CIRCLES)) {
             return this.#solveMaze(MAZE_5, normalized_white_square, normalized_triangle);
+        }
+
+        if (circles_comp(circles, MAZE_6_CIRCLES)) {
+            return this.#solveMaze(MAZE_6, normalized_white_square, normalized_triangle);
         }
 
         return undefined;
