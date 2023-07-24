@@ -2,6 +2,8 @@ import WireColor from '../types/wire_color';
 
 
 export default class WiresSolver {
+    static MAX_WIRES = 6;
+
     static #helper_3_wires(wires) {
         const num_blue_wires = wires.filter(wire => wire === WireColor.BLUE).length;
         const last_blue_wire_pos = wires.lastIndexOf(WireColor.BLUE) + 1;
@@ -87,8 +89,10 @@ export default class WiresSolver {
             return this.#helper_4_wires(wires, last_serial_number_digit);
         } else if (num_wires === 5) {
             return this.#helper_5_wires(wires, last_serial_number_digit);
-        } else {
+        } else if (num_wires === 6) {
             return this.#helper_6_wires(wires, last_serial_number_digit);
+        } else {
+            return undefined;
         }
     }
 };
