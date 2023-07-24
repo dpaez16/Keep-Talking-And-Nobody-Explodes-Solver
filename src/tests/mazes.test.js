@@ -172,4 +172,32 @@ describe('Mazes Module Tests', () => {
         
         expect(steps).toBe(expectedSteps);
     });
+
+    test('Maze 7 test', () => {
+        const circles = [
+            [6, 2],
+            [1, 2]
+        ];
+
+        const red_triangle_coords = [1, 1];
+        const white_square_coords = [6, 6];
+
+        const path = MazesSolver.solve(circles, red_triangle_coords, white_square_coords);
+        const expectedPath = [
+            [ 5, 5 ], [ 5, 4 ], [ 4, 4 ],
+            [ 4, 3 ], [ 4, 2 ], [ 3, 2 ],
+            [ 3, 3 ], [ 3, 4 ], [ 2, 4 ],
+            [ 2, 5 ], [ 1, 5 ], [ 0, 5 ],
+            [ 0, 4 ], [ 1, 4 ], [ 1, 3 ],
+            [ 0, 3 ], [ 0, 2 ], [ 0, 1 ],
+            [ 0, 0 ]
+        ];
+
+        expect(path).toStrictEqual(expectedPath);
+
+        const steps = MazesSolver.getStepsFromPath(path);
+        const expectedSteps = "LEFT, UP, LEFT, LEFT, UP, RIGHT, RIGHT, UP, RIGHT, UP, UP, LEFT, DOWN, LEFT, UP, LEFT, LEFT, LEFT";
+        
+        expect(steps).toBe(expectedSteps);
+    });
 });
