@@ -1,0 +1,9 @@
+.ButtonModulePage {
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+}
+
+.ButtonModulePage > div {
+    margin-top: 1rem;
+}

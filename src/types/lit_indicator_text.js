@@ -16,6 +16,6 @@ export default class LitIndicatorText extends Enumify {
 	static _ = this.closeEnum();
 	
 	static fromString(val) {
-		return WireColor[val];
+		return LitIndicatorText[val];
 	}
 };
