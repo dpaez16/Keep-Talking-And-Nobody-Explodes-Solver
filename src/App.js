@@ -22,6 +22,33 @@ export default class App extends Component {
                             <Route  path="/button" 
                                     element={<ButtonModulePage/>}
                             />
+                            <Route  path="/keypads" 
+                                    element={<HomePage/>} // TODO
+                            />
+                            <Route  path="/simonsays" 
+                                    element={<HomePage/>} // TODO
+                            />
+                            <Route  path="/whosonfirst" 
+                                    element={<HomePage/>} // TODO
+                            />
+                            <Route  path="/numbermemory" 
+                                    element={<HomePage/>} // TODO
+                            />
+                            <Route  path="/morsecode" 
+                                    element={<HomePage/>} // TODO
+                            />
+                            <Route  path="/complicatedwires" 
+                                    element={<HomePage/>} // TODO
+                            />
+                            <Route  path="/wiresequences" 
+                                    element={<HomePage/>} // TODO
+                            />
+                            <Route  path="/mazes" 
+                                    element={<HomePage/>} // TODO
+                            />
+                            <Route  path="/passwords" 
+                                    element={<HomePage/>} // TODO
+                            />
                         </Routes>
                     </Container>
                 </React.Fragment>

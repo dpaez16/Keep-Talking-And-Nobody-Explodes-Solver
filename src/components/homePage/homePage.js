@@ -14,6 +14,15 @@ export default class HomePage extends Component {
                 <List bulleted>
                     <List.Item href="/wires">(Simple) Wires</List.Item>
                     <List.Item href="/button">The Button</List.Item>
+                    <List.Item href="/keypads">Keypads</List.Item>
+                    <List.Item href="/simonsays">Simon Says</List.Item>
+                    <List.Item href="/whosonfirst">Who's On First?</List.Item>
+                    <List.Item href="/numbermemory">(Number) Memory</List.Item>
+                    <List.Item href="/morsecode">Morse Code</List.Item>
+                    <List.Item href="/complicatedwires">Complicated Wires</List.Item>
+                    <List.Item href="/wiresequences">Wire Sequences</List.Item>
+                    <List.Item href="/mazes">Mazes</List.Item>
+                    <List.Item href="/passwords">Passwords</List.Item>
                 </List>
             </Container>
         );
