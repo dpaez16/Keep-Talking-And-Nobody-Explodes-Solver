@@ -1,0 +1,15 @@
+.KeypadsModulePage {
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+}
+
+.KeypadsModulePage > div {
+    margin-top: 1rem;
+}
+
+.KeypadsModulePage > div * {
+    display: flex;
+    flex-direction: row;
+    margin-right: 2rem;
+}
