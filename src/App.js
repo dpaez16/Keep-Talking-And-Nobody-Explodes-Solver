@@ -5,6 +5,7 @@ import HomePage from './components/homePage/homePage';
 import WiresModulePage from './components/wiresModulePage/wiresModulePage';
 import ButtonModulePage from './components/buttonModulePage/buttonModulePage';
 import ComplicatedWiresModulePage from './components/complicatedWiresModulePage/complicatedWiresModulePage';
+import KeypadsModulePage from './components/keypadsModulePage/keypadsModulePage';
 import './App.css';
 
 export default class App extends Component {
@@ -24,7 +25,7 @@ export default class App extends Component {
                                     element={<ButtonModulePage/>}
                             />
                             <Route  path="/keypads" 
-                                    element={<HomePage/>} // TODO
+                                    element={<KeypadsModulePage/>}
                             />
                             <Route  path="/simonsays" 
                                     element={<HomePage/>} // TODO

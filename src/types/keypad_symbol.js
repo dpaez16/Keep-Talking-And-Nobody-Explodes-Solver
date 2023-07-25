@@ -1,8 +1,8 @@
 import { Enumify } from 'enumify';
 
 export default class KeypadSymbol extends Enumify {
-    static MIRROR                       = new KeypadSymbol();
-    static FUNNY_LETTER_A               = new KeypadSymbol();
+    static BALLOON                      = new KeypadSymbol();
+    static AT                           = new KeypadSymbol();
     static LAMBDA                       = new KeypadSymbol();
     static WEIRD_MIRRORED_N             = new KeypadSymbol();
     static KITTY                        = new KeypadSymbol();
@@ -14,8 +14,8 @@ export default class KeypadSymbol extends Enumify {
     static UPSIDE_DOWN_QUESTION_MARK    = new KeypadSymbol();
     static COPYRIGHT                    = new KeypadSymbol();
     static BALLSACK                     = new KeypadSymbol();
-    static MIRRORED_PAIR_OF_KS          = new KeypadSymbol();
-    static WEIRD_SCRIPT_R               = new KeypadSymbol();
+    static DOUBLE_KS                    = new KeypadSymbol();
+    static MELTED_3                     = new KeypadSymbol();
     static WEIRD_6                      = new KeypadSymbol();
     static BACKWARDS_PARAGRAPH          = new KeypadSymbol();
     static LETTER_B_WITH_CROSS          = new KeypadSymbol();
