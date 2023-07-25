@@ -1,0 +1,15 @@
+.SimonSaysModulePage {
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+}
+
+.SimonSaysModulePage > div {
+    margin-top: 1rem;
+}
+
+.SimonSaysModulePage > div * {
+    display: flex;
+    flex-direction: row;
+    margin-right: 2rem;
+}
