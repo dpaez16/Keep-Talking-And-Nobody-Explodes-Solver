@@ -42,10 +42,19 @@ export default class WhosOnFirstButtonLabelText extends Enumify {
                 return WhosOnFirstButtonLabelText.UH_HUH;
             case "UH UH":
                 return WhosOnFirstButtonLabelText.UH_UH;
-            case "What?":
+            case "WHAT?":
                 return WhosOnFirstButtonLabelText.WHAT_QUESTION_MARK;
             default:
                 return WhosOnFirstButtonLabelText[val];
+        }
+    }
+
+    toString() {
+        switch (this) {
+            case WhosOnFirstButtonLabelText.WHAT_QUESTION_MARK:
+                return "WHAT?";
+            default:
+                return this.enumKey.replaceAll("__", `'`).replaceAll("_", " ");
         }
     }
 };

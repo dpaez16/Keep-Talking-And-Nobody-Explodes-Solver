@@ -7,6 +7,7 @@ import ButtonModulePage from './components/buttonModulePage/buttonModulePage';
 import ComplicatedWiresModulePage from './components/complicatedWiresModulePage/complicatedWiresModulePage';
 import KeypadsModulePage from './components/keypadsModulePage/keypadsModulePage';
 import SimonSaysModulePage from './components/simonSaysModulePage/simonSaysModulePage';
+import WhosOnFirstModulePage from './components/whosOnFirstModulePage/whosOnFirstModulePage';
 import './App.css';
 
 export default class App extends Component {
@@ -29,10 +30,10 @@ export default class App extends Component {
                                     element={<KeypadsModulePage/>}
                             />
                             <Route  path="/simonsays" 
-                                    element={<SimonSaysModulePage/>} // TODO
+                                    element={<SimonSaysModulePage/>}
                             />
                             <Route  path="/whosonfirst" 
-                                    element={<HomePage/>} // TODO
+                                    element={<WhosOnFirstModulePage/>}
                             />
                             <Route  path="/numbermemory" 
                                     element={<HomePage/>} // TODO

@@ -1,0 +1,15 @@
+.WhosOnFirstModulePage {
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+}
+
+.WhosOnFirstModulePage > div {
+    margin-top: 1rem;
+}
+
+.WhosOnFirstModulePage > div * {
+    display: flex;
+    flex-direction: row;
+    margin-right: 2rem;
+}

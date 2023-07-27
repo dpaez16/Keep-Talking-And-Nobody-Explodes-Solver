@@ -35,4 +35,8 @@ export default class WhosOnFirstDisplayWord extends Enumify {
     static fromString(val) {
         return WhosOnFirstDisplayWord[val];
     }
+
+    toString() {
+        return this.enumKey.replaceAll("__", `'`).replaceAll("_", " ");
+    }
 };
