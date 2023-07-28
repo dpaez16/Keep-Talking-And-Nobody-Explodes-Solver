@@ -23,8 +23,27 @@ export default class MazesModulePage extends Component {
     }
 
     inputValid() {
-        const {circle1RowCoord, circle2RowCoord, circle1ColCoord, circle2ColCoord} = this.state;
-        return false;
+        const {
+            circle1RowCoord, 
+            circle2RowCoord, 
+            circle1ColCoord, 
+            circle2ColCoord,
+            triangleRowCoord,
+            triangleColCoord,
+            whiteSquareRowCoord,
+            whiteSquareColCoord
+        } = this.state;
+
+        const numberRegex = RegExp(/^[1-6]$/);
+
+        return  numberRegex.test(circle1RowCoord) &&
+                numberRegex.test(circle1ColCoord) &&
+                numberRegex.test(circle2RowCoord) &&
+                numberRegex.test(circle2ColCoord) &&
+                numberRegex.test(triangleRowCoord) &&
+                numberRegex.test(triangleColCoord) &&
+                numberRegex.test(whiteSquareRowCoord) &&
+                numberRegex.test(whiteSquareColCoord)
     }
 
     render() {
@@ -96,7 +115,7 @@ export default class MazesModulePage extends Component {
                             fluid
                 >
                     <Button
-                        disabled={false}
+                        disabled={!this.inputValid()}
                         onClick={e => {
                             e.preventDefault();
 
@@ -116,7 +135,7 @@ export default class MazesModulePage extends Component {
                             ];
 
                             const path = MazesSolver.solve(circles, triangleCoords, whiteSquareCoords);
-                            const answer = MazesSolver.getStepsFromPath(path);
+                            const answer = path !== undefined ? MazesSolver.getStepsFromPath(path) : "Circle coordinates do not match a maze.";
                             
                             this.setState({
                                 answer: answer

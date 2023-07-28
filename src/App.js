@@ -12,6 +12,7 @@ import NumberMemoryModulePage from './components/numberMemoryModulePage/numberMe
 import MorseCodeModulePage from './components/morseCodeModulePage/morseCodeModulePage';
 import WireSequencesModulePage from './components/wireSequencesModulePage/wireSequencesModulePage';
 import MazesModulePage from './components/mazesModulePage/mazesModulePage';
+import PasswordsModulePage from './components/passwordsModulePage/passwordsModulePage';
 import './App.css';
 
 export default class App extends Component {
@@ -55,7 +56,7 @@ export default class App extends Component {
                                     element={<MazesModulePage/>}
                             />
                             <Route  path="/passwords" 
-                                    element={<HomePage/>} // TODO
+                                    element={<PasswordsModulePage/>}
                             />
                         </Routes>
                     </Container>

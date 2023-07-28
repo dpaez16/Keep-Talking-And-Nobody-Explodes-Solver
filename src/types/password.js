@@ -14,6 +14,7 @@ export default class Password extends Enumify {
     static LARGE = new Password();
     static LEARN = new Password();
     static NEVER = new Password();
+    static NWORD = new Password();
     static OTHER = new Password();
     static PLACE = new Password();
     static PLANT = new Password();
