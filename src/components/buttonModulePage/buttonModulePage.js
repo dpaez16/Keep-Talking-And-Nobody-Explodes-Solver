@@ -85,7 +85,7 @@ export default class ButtonModulePage extends Component {
                         placeholder="Lit Indicator Text"
                         name="litIndicatorText"
                         selection
-                        options={LitIndicatorText.enumValues.map((lit_indicator_text, idx) => { return {key: lit_indicator_text.enumKey, value: lit_indicator_text, text: lit_indicator_text.enumKey}; })}
+                        options={LitIndicatorText.enumValues.map((lit_indicator_text, idx) => { return {key: lit_indicator_text.enumKey, value: lit_indicator_text, text: lit_indicator_text.enumKey.replaceAll("_", " ")}; })}
                         onChange={this.dropdownHandler.bind(this)}
                     />
                 </Container>

@@ -12,6 +12,7 @@ export default class LitIndicatorText extends Enumify {
     static TRN = new LitIndicatorText();
     static BOB = new LitIndicatorText();
     static FRK = new LitIndicatorText();
+    static NOT_PRESENT = new LitIndicatorText();
 	
 	static _ = this.closeEnum();
 	
