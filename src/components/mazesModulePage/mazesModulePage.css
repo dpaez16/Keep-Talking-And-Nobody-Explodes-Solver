@@ -1,0 +1,19 @@
+.MazeModulePage {
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+}
+
+.MazeModulePage > div {
+    margin-top: 1rem;
+}
+
+.MazeModulePage > div * {
+    display: flex;
+    flex-direction: row;
+    margin-right: 2rem;
+}
+
+.MazesSolverButton {
+    margin-top: 2rem;
+}
