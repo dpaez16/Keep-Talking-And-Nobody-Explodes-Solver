@@ -37,9 +37,8 @@ export default class WireSequencesSolver {
         ["C"]
     ];
 
-    static addWire(wire_color, wire_position, wire_connections) {
-        wire_connections[wire_color].append(wire_position);
-        const idx = wire_connections[wire_color].length - 1;
+    static solve(wire_color, wire_position, wire_connections) {
+        const idx = wire_connections[wire_color].length;
         
         switch (wire_color) {
             case WireColor.RED:

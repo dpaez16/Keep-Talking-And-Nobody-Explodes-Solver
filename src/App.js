@@ -10,6 +10,7 @@ import SimonSaysModulePage from './components/simonSaysModulePage/simonSaysModul
 import WhosOnFirstModulePage from './components/whosOnFirstModulePage/whosOnFirstModulePage';
 import NumberMemoryModulePage from './components/numberMemoryModulePage/numberMemoryModulePage';
 import MorseCodeModulePage from './components/morseCodeModulePage/morseCodeModulePage';
+import WireSequencesModulePage from './components/wireSequencesModulePage/wireSequencesModulePage';
 import './App.css';
 
 export default class App extends Component {
@@ -47,7 +48,7 @@ export default class App extends Component {
                                     element={<ComplicatedWiresModulePage/>}
                             />
                             <Route  path="/wiresequences" 
-                                    element={<HomePage/>} // TODO
+                                    element={<WireSequencesModulePage/>}
                             />
                             <Route  path="/mazes" 
                                     element={<HomePage/>} // TODO

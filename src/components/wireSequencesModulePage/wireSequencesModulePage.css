@@ -1,0 +1,33 @@
+.WireSequencesModulePage {
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+}
+
+.WireSequencesInput {
+    display: flex;
+    flex-direction: row;
+}
+
+.WireSequencesInput > * {
+    margin-right: 2rem;
+}
+
+.WireSequencesAnswer {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.WireSequencesButtons {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.WireSequenceColumns {
+    display: flex;
+    flex-direction: row;
+}
+
+.WireSequenceColumn {
+    margin: 1rem;
+}
