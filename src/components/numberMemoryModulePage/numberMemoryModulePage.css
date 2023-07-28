@@ -1,0 +1,15 @@
+.NumberMemoryModulePage {
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+}
+
+.NumberMemoryModulePage > div {
+    margin-top: 1rem;
+}
+
+.NumberMemoryModulePage > div * {
+    display: flex;
+    flex-direction: row;
+    margin-right: 2rem;
+}

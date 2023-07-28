@@ -8,6 +8,7 @@ import ComplicatedWiresModulePage from './components/complicatedWiresModulePage/
 import KeypadsModulePage from './components/keypadsModulePage/keypadsModulePage';
 import SimonSaysModulePage from './components/simonSaysModulePage/simonSaysModulePage';
 import WhosOnFirstModulePage from './components/whosOnFirstModulePage/whosOnFirstModulePage';
+import NumberMemoryModulePage from './components/numberMemoryModulePage/numberMemoryModulePage';
 import './App.css';
 
 export default class App extends Component {
@@ -36,7 +37,7 @@ export default class App extends Component {
                                     element={<WhosOnFirstModulePage/>}
                             />
                             <Route  path="/numbermemory" 
-                                    element={<HomePage/>} // TODO
+                                    element={<NumberMemoryModulePage/>}
                             />
                             <Route  path="/morsecode" 
                                     element={<HomePage/>} // TODO

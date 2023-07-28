@@ -1,4 +1,6 @@
 export default class NumberMemorySolver {
+    static MAX_STAGES = 5;
+
     static #solve_stage_1(display_number, previous_inputs) {
         switch (display_number) {
             case 1:
@@ -72,11 +74,6 @@ export default class NumberMemorySolver {
             default:
                 return undefined;
         }
-    }
-
-    static append_input(position, label, previous_inputs) {
-        previous_inputs.push({position: position, label: label});
-        return previous_inputs;
     }
 
     static solve(stage_number, display_number, previous_inputs) {
