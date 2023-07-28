@@ -1,0 +1,15 @@
+.MorseCodeModulePage {
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+}
+
+.MorseCodeModulePage > div {
+    margin-top: 1rem;
+}
+
+.MorseCodeModulePage > div * {
+    display: flex;
+    flex-direction: row;
+    margin-right: 2rem;
+}

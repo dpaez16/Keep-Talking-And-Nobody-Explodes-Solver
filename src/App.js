@@ -9,6 +9,7 @@ import KeypadsModulePage from './components/keypadsModulePage/keypadsModulePage'
 import SimonSaysModulePage from './components/simonSaysModulePage/simonSaysModulePage';
 import WhosOnFirstModulePage from './components/whosOnFirstModulePage/whosOnFirstModulePage';
 import NumberMemoryModulePage from './components/numberMemoryModulePage/numberMemoryModulePage';
+import MorseCodeModulePage from './components/morseCodeModulePage/morseCodeModulePage';
 import './App.css';
 
 export default class App extends Component {
@@ -40,7 +41,7 @@ export default class App extends Component {
                                     element={<NumberMemoryModulePage/>}
                             />
                             <Route  path="/morsecode" 
-                                    element={<HomePage/>} // TODO
+                                    element={<MorseCodeModulePage/>}
                             />
                             <Route  path="/complicatedwires"
                                     element={<ComplicatedWiresModulePage/>}

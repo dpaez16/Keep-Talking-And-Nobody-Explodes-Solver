@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Table} from 'semantic-ui-react';
-import './memoryStageRow.css';
 
 export default class MemoryStageRow extends Component {
     parsePosition(position) {
