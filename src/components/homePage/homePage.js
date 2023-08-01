@@ -11,6 +11,7 @@ export default class HomePage extends Component {
                 fluid 
             >
                 <Header as='h1'>Keep Talking and Nobody Explodes Bomb Defusal Assistance Tool</Header>
+                <Header as='h3'>
                 <List bulleted>
                     <List.Item href="/wires">(Simple) Wires</List.Item>
                     <List.Item href="/button">The Button</List.Item>
@@ -24,6 +25,7 @@ export default class HomePage extends Component {
                     <List.Item href="/mazes">Mazes</List.Item>
                     <List.Item href="/passwords">Passwords</List.Item>
                 </List>
+            </Header>
             </Container>
         );
     }
