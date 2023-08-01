@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Header, List, Button, Input, Dropdown} from 'semantic-ui-react';
+import {Container, Header, List, Button, Input} from 'semantic-ui-react';
 import WiresSolver from '../../module_solvers/wires';
 import WireColor from '../../types/wire_color';
 import './wiresModulePage.css';
@@ -62,23 +62,25 @@ export default class WiresModulePage extends Component {
                     />
                 </Container>
                 <Container fluid>
-                    <Dropdown
-                        className="addWireDropdown"
-                        placeholder="Wire Color"
-                        selection
-                        options={WireColor.enumValues.map((wire_color, idx) => { return {key: wire_color.enumKey, value: wire_color, text: wire_color.enumKey}; })}
-                        onChange={this.addWireDropdownHandler.bind(this)}
-                    />
-                    <Button
-                        positive
-                        onClick={e => {
-                            e.preventDefault();
-                            this.setState({wireColors: [...this.state.wireColors, this.state.selectedWire]});
-                        }}
-                        disabled={this.state.selectedWire === undefined || this.state.wireColors.length === WiresSolver.MAX_WIRES}
-                    >
-                        Add Wire
-                    </Button>
+                    {
+                        WireColor.enumValues.map((wire_color, idx) => {
+                            return (
+                                <Button
+                                    color={wire_color.enumKey.toLowerCase()}
+                                    content={wire_color.enumKey}
+                                    onClick={e => {
+                                        e.preventDefault();
+
+                                        if (this.state.wireColors.length === WiresSolver.MAX_WIRES) {
+                                            return;
+                                        }
+
+                                        this.setState({wireColors: [...this.state.wireColors, wire_color]});
+                                    }}
+                                />
+                            );
+                        })
+                    }
                 </Container>
                 <Container fluid>
                     <Button
