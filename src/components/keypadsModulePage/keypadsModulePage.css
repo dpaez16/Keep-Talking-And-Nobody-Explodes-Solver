@@ -8,8 +8,7 @@
     margin-top: 1rem;
 }
 
-.KeypadsModulePage > div * {
+.KeypadsModulePage_symbols {
     display: flex;
     flex-direction: row;
-    margin-right: 2rem;
 }
