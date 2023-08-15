@@ -28,6 +28,12 @@ export default class SimonSaysModulePage extends Component {
         });
     }
 
+    addColorToSequence(color) {
+        this.setState({
+            colorsPressed: [...this.state.colorsPressed, color]
+        });
+    }
+
     inputValid() {
         const {colorsPressed, serialNumberHasVowel, numberOfStrikes} = this.state
         return (colorsPressed.length > 0) && serialNumberHasVowel !== undefined && numberOfStrikes !== undefined;
@@ -60,25 +66,20 @@ export default class SimonSaysModulePage extends Component {
                     />
                 </Container>
                 <Container fluid>
-                    <Label>Add Color to Sequence</Label>
-                    <Dropdown
-                        className="addColorDropdown"
-                        placeholder="Color"
-                        name="selectedColor"
-                        selection
-                        options={SimonSaysColor.enumValues.map((color, idx) => { return {key: color.enumKey, value: color, text: color.enumKey}; })}
-                        onChange={this.handleChange.bind(this)}
-                    />
-                    <Button
-                        positive
-                        onClick={e => {
-                            e.preventDefault();
-                            this.setState({colorsPressed: [...this.state.colorsPressed, this.state.selectedColor]});
-                        }}
-                        disabled={this.state.selectedColor === undefined}
-                    >
-                        Add Color
-                    </Button>
+                    {
+                        SimonSaysColor.enumValues.map((color) => {
+                            return (
+                                <Button
+                                    color={color.enumKey.toLowerCase()}
+                                    content={color.enumKey}
+                                    onClick={e => {
+                                        e.preventDefault();
+                                        this.addColorToSequence(color);
+                                    }}
+                                />
+                            );
+                        })
+                    }
                 </Container>
                 <Container fluid>
                     <Button
